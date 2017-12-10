@@ -1,6 +1,7 @@
 package app.ys.weatherping_2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -27,9 +28,6 @@ public class Intro extends AppCompatActivity implements LocationListener {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.intro);
-
-        Button getLocationBtn = (Button)findViewById(R.id.getLocationBtn);
-
 
         if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
@@ -70,4 +68,12 @@ public class Intro extends AppCompatActivity implements LocationListener {
 
     }
 
+    button.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent= new Intent(Intro.this,.class);
+            intent.putExtra("data",anf);
+            startActivity(intent);
+        }
+    });
 }
