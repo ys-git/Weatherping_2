@@ -17,5 +17,6 @@ public class Home extends AppCompatActivity {
         Intent intent = getIntent();
         String la = intent.getStringExtra("lat");
         String lo = intent.getStringExtra("lon");
+
     }
 }
