@@ -29,7 +29,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:launchMode="singleInstance">
-
+        </activity>
+        <activity
+            android:name=".Home"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:launchMode="singleInstance">
         </activity>
     </application>
 

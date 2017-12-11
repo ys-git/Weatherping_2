@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
@@ -11,8 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="68dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editText2"
@@ -22,12 +22,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Email" />
+        android:inputType="textPersonName" />
 
     <Button
 
-        android:id="@+id/getLocationBtn"
+        android:id="@+id/button"
 
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -43,4 +42,13 @@
         android:shadowDy="0"
         android:shadowRadius="0"
         />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp"
+        android:text="TextView" />
 </RelativeLayout>
