@@ -2,6 +2,7 @@ package app.ys.weatherping_2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -40,7 +41,6 @@ import java.util.Locale;
 public class Intro extends AppCompatActivity implements LocationListener {
 
     Button getLocationBtn;
-    TextView locationText;
     public Double lat;
     public  Double lon;
     EditText e1,e2;
@@ -52,6 +52,8 @@ public class Intro extends AppCompatActivity implements LocationListener {
 
     LocationManager locationManager;
 
+    SharedPreferences sdata;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,8 @@ public class Intro extends AppCompatActivity implements LocationListener {
         setContentView(R.layout.intro);
         getLocation();
 
+
+sdata= getSharedPreferences("my",Context.MODE_PRIVATE);
 
         getLocationBtn = (Button)findViewById(R.id.button);
         e1=(EditText)findViewById(R.id.editText);
@@ -113,6 +117,12 @@ public class Intro extends AppCompatActivity implements LocationListener {
                 }
                 else
                 {
+                    SharedPreferences.Editor editor = sdata.edit();
+                    editor.clear();
+                    editor.putString("Name", "name");
+                    editor.putString("Name", "email");
+                    editor.commit();
+
                     Intent i= new Intent(Intro.this,Home.class);
                     i.putExtra("lat",lat);
                     i.putExtra("lon",lon);

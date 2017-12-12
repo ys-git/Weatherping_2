@@ -1,7 +1,9 @@
 package app.ys.weatherping_2;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,6 +17,11 @@ public class Splashload extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashload);
+
+        SharedPreferences settings = getSharedPreferences("mysettings",
+                Context.MODE_PRIVATE);
+        String myString = settings.getString("Name", "defaultvalue");
+
 
         final ImageView tv1 = (ImageView) findViewById(R.id.imageView);
         final ImageView tv2 = (ImageView) findViewById(R.id.imageView2);
