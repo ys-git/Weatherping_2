@@ -9,6 +9,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,8 +20,15 @@ import android.view.animation.TranslateAnimation;
 import android.view.animation.*;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 import java.util.Locale;
@@ -38,6 +46,7 @@ public class Intro extends AppCompatActivity implements LocationListener {
     EditText e1,e2;
     String name;
     String email;
+    RadioGroup radioGroup;
 
 
 
@@ -50,9 +59,27 @@ public class Intro extends AppCompatActivity implements LocationListener {
         setContentView(R.layout.intro);
         getLocation();
 
+
         getLocationBtn = (Button)findViewById(R.id.button);
         e1=(EditText)findViewById(R.id.editText);
         e2=(EditText)findViewById(R.id.editText2);
+
+        radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // find which radio button is selected
+                if(checkedId == R.id.radioButton3) {
+                    //Toast.makeText(getApplicationContext(), "choice: A",
+                      //      Toast.LENGTH_SHORT).show();
+                } else if(checkedId == R.id.radioButton4) {
+                    //Toast.makeText(getApplicationContext(), "choice: B",
+                      //      Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
 
 
         if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -72,8 +99,17 @@ public class Intro extends AppCompatActivity implements LocationListener {
                 if (e1.getText().toString().trim().length() == 0) {
                     e1.startAnimation(shakeError());
                 }
+                else
                 if (e2.getText().toString().trim().length() == 0) {
                     e2.startAnimation(shakeError());
+                }
+                else
+                if (radioGroup.getCheckedRadioButtonId() == -1)
+                {
+                    // no radio buttons are checked
+                    Toast.makeText(getApplicationContext(),"Please select Gender",
+                            Toast.LENGTH_SHORT).show();
+
                 }
                 else
                 {

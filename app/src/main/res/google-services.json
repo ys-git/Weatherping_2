@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "280044330822",
+    "firebase_url": "https://weatherping.firebaseio.com",
+    "project_id": "weatherping",
+    "storage_bucket": "weatherping.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280044330822:android:0b22f6a383a63e25",
+        "android_client_info": {
+          "package_name": "app.ys.weatherping_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280044330822-e5n2pkpjj90o0ei2ehakl197c0onmja5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5d2wQ4dRYkQNtr7c-jGgIUPZ4HmkY2FA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
