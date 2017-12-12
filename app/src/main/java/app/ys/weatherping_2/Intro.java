@@ -40,6 +40,7 @@ public class Intro extends AppCompatActivity implements LocationListener {
     String email;
 
 
+
     LocationManager locationManager;
 
     @Override
@@ -50,7 +51,6 @@ public class Intro extends AppCompatActivity implements LocationListener {
         getLocation();
 
         getLocationBtn = (Button)findViewById(R.id.button);
-        locationText = (TextView)findViewById(R.id.textView);
         e1=(EditText)findViewById(R.id.editText);
         e2=(EditText)findViewById(R.id.editText2);
 
@@ -119,6 +119,14 @@ public class Intro extends AppCompatActivity implements LocationListener {
 
     @Override
     public void onProviderDisabled(String provider) {
+        /*Toast toast = Toast.makeText(getApplicationContext(),
+                "Custom toast background color",
+                Toast.LENGTH_SHORT);
+
+        View toastView = toast.getView();
+        toastView.setBackgroundResource(R.drawable.toast_drawable);
+        toast.show();*/
+
         Toast.makeText(Intro.this, "Please Enable GPS and Internet", Toast.LENGTH_SHORT).show();
     }
 
@@ -132,7 +140,7 @@ public class Intro extends AppCompatActivity implements LocationListener {
 
     }
     public TranslateAnimation shakeError() {
-        TranslateAnimation shake = new TranslateAnimation(0, 5, 0, 0);
+        TranslateAnimation shake = new TranslateAnimation(-1, 7, 0, 0);
         shake.setDuration(500);
         shake.setInterpolator(new CycleInterpolator(7));
         return shake;
