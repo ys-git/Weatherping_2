@@ -12,16 +12,13 @@ import android.widget.ImageView;
 
 
 public class Splashload extends Activity {
-
+    SharedPreferences settings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashload);
 
-        SharedPreferences settings = getSharedPreferences("mysettings",
-                Context.MODE_PRIVATE);
-        String myString = settings.getString("Name", "defaultvalue");
-
+        settings = getSharedPreferences("mysettings", Context.MODE_PRIVATE);
 
         final ImageView tv1 = (ImageView) findViewById(R.id.imageView);
         final ImageView tv2 = (ImageView) findViewById(R.id.imageView2);
@@ -60,6 +57,8 @@ public class Splashload extends Activity {
 
 
                 finish();
+
+
                 Intent intent = new Intent();
                 intent.setClass(Splashload.this, Intro.class);
                 Splashload.this.startActivity(intent);

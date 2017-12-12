@@ -118,9 +118,9 @@ sdata= getSharedPreferences("my",Context.MODE_PRIVATE);
                 else
                 {
                     SharedPreferences.Editor editor = sdata.edit();
-                    editor.clear();
+                    //editor.clear();
                     editor.putString("Name", "name");
-                    editor.putString("Name", "email");
+                    editor.putString("Email", "email");
                     editor.commit();
 
                     Intent i= new Intent(Intro.this,Home.class);
