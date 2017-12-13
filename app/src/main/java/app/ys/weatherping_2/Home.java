@@ -36,8 +36,8 @@ public class Home extends AppCompatActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
-        t1=(TextView)findViewById(R.id.textView3);
-        t2=(TextView)findViewById(R.id.textView2);
+        //t1=(TextView)findViewById(R.id.textView3);
+        //t2=(TextView)findViewById(R.id.textView2);
         getLocation();
         /*city = (TextView)findViewById(R.id.city_field);
         updated = (TextView)findViewById(R.id.updated_field);
