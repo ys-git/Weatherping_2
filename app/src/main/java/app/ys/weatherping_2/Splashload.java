@@ -12,13 +12,13 @@ import android.widget.ImageView;
 
 
 public class Splashload extends Activity {
-    SharedPreferences settings;
+    SharedPreferences sdata;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashload);
 
-        settings = getSharedPreferences("mysettings", Context.MODE_PRIVATE);
+        sdata = getSharedPreferences("my", Context.MODE_PRIVATE);
 
         final ImageView tv1 = (ImageView) findViewById(R.id.imageView);
         final ImageView tv2 = (ImageView) findViewById(R.id.imageView2);
@@ -54,18 +54,26 @@ public class Splashload extends Activity {
             public void onAnimationEnd(Animation animation) {
                 tv1.startAnimation(a2);
                 tv2.startAnimation(a2);
-
-
                 finish();
 
+                if (sdata.getString("Name", null)!=null) {
 
+                    Intent intent = new Intent();
+                    intent.setClass(Splashload.this, Home.class);
+                    Splashload.this.startActivity(intent);
+                    Splashload.this.finish();
+                    // transition from splash to main menu
+                    overridePendingTransition(R.anim.activityfadein,
+                            R.anim.splashfadeout);
+                }
+                else{
                 Intent intent = new Intent();
                 intent.setClass(Splashload.this, Intro.class);
                 Splashload.this.startActivity(intent);
                 Splashload.this.finish();
                 // transition from splash to main menu
                 overridePendingTransition(R.anim.activityfadein,
-                        R.anim.splashfadeout);
+                        R.anim.splashfadeout);}
 
             }
 

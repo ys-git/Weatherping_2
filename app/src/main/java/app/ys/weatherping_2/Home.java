@@ -14,7 +14,7 @@ import org.w3c.dom.Text;
  */
 
 public class Home extends AppCompatActivity {
-    SharedPreferences settings;
+    SharedPreferences sdata;
     TextView t1,t2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +29,12 @@ public class Home extends AppCompatActivity {
         String la = intent.getStringExtra("lat");
         String lo = intent.getStringExtra("lon");
 
-         settings = this.getSharedPreferences("my",Context.MODE_PRIVATE);
-        String meString = settings.getString("Name", "defaultvalue");
+         sdata = this.getSharedPreferences("my",Context.MODE_PRIVATE);
+        String meString = sdata.getString("Name", null);
         t1.setText(meString);
 
-        if (settings != null) {
-            String loadUsername = settings.getString(
+        if (sdata != null) {
+            String loadUsername = sdata.getString(
                     "Email", null);
             t2.setText(loadUsername);
         }

@@ -117,11 +117,13 @@ sdata= getSharedPreferences("my",Context.MODE_PRIVATE);
                 }
                 else
                 {
+                    name =  e1.getText().toString();
+                    email =  e2.getText().toString();
                     SharedPreferences.Editor editor = sdata.edit();
                     //editor.clear();
-                    editor.putString("Name", "name");
-                    editor.putString("Email", "email");
-                    editor.commit();
+                    editor.putString("Name",name);
+                    editor.putString("Email", email);
+                    editor.apply();
 
                     Intent i= new Intent(Intro.this,Home.class);
                     i.putExtra("lat",lat);
