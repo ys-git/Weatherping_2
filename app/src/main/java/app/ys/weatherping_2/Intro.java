@@ -40,7 +40,7 @@ import java.util.Locale;
 
 public class Intro extends AppCompatActivity implements LocationListener {
 
-    Button getLocationBtn;
+    Button next;
     public Double lat;
     public  Double lon;
     EditText e1,e2;
@@ -64,7 +64,7 @@ public class Intro extends AppCompatActivity implements LocationListener {
 
 sdata= getSharedPreferences("my",Context.MODE_PRIVATE);
 
-        getLocationBtn = (Button)findViewById(R.id.button);
+        next = (Button)findViewById(R.id.button);
         e1=(EditText)findViewById(R.id.editText);
         e2=(EditText)findViewById(R.id.editText2);
 
@@ -95,7 +95,7 @@ sdata= getSharedPreferences("my",Context.MODE_PRIVATE);
         email =  e2.getText().toString();
 
 
-        getLocationBtn.setOnClickListener(new View.OnClickListener() {
+        next.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -126,8 +126,8 @@ sdata= getSharedPreferences("my",Context.MODE_PRIVATE);
                     editor.apply();
 
                     Intent i= new Intent(Intro.this,Home.class);
-                    i.putExtra("lat",lat);
-                    i.putExtra("lon",lon);
+                    //i.putExtra("lat",lat);
+                    //i.putExtra("lon",lon);
                     startActivity(i);
 
                 }
@@ -150,8 +150,8 @@ sdata= getSharedPreferences("my",Context.MODE_PRIVATE);
     @Override
     public void onLocationChanged(Location location) {
         /*locationText.setText("Latitude: " + location.getLatitude() + "\n Longitude: " + location.getLongitude());*/
-        lat=location.getLatitude();
-        lon=location.getLongitude();
+        //lat=location.getLatitude();
+        //lon=location.getLongitude();
 
         /*try {
             Geocoder geocoder = new Geocoder(this, Locale.getDefault());
@@ -175,7 +175,7 @@ sdata= getSharedPreferences("my",Context.MODE_PRIVATE);
         toastView.setBackgroundResource(R.drawable.toast_drawable);
         toast.show();*/
 
-        Toast.makeText(Intro.this, "Please Enable GPS and Internet", Toast.LENGTH_SHORT).show();
+        Toast.makeText(Intro.this, "Please Enable Location", Toast.LENGTH_SHORT).show();
     }
 
     @Override
