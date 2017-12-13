@@ -28,6 +28,7 @@ import java.util.function.Function;
 public class Home extends AppCompatActivity implements LocationListener {
     SharedPreferences sdata;
     TextView t1,t2;
+    String s,q;
     public Double lat,lon;
     LocationManager locationManager;
     TextView city, details, temp, hum, pre, weatherIcon, updated;
@@ -38,14 +39,14 @@ public class Home extends AppCompatActivity implements LocationListener {
         t1=(TextView)findViewById(R.id.textView3);
         t2=(TextView)findViewById(R.id.textView2);
         getLocation();
-        city = (TextView)findViewById(R.id.city_field);
+        /*city = (TextView)findViewById(R.id.city_field);
         updated = (TextView)findViewById(R.id.updated_field);
         details = (TextView)findViewById(R.id.details_field);
         temp = (TextView)findViewById(R.id.current_temperature_field);
         hum = (TextView)findViewById(R.id.humidity_field);
         pre = (TextView)findViewById(R.id.pressure_field);
         weatherIcon = (TextView)findViewById(R.id.weather_icon);
-        weatherIcon.setTypeface(weatherFont);
+        weatherIcon.setTypeface(weatherFont);*/
 
 
         if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -54,6 +55,8 @@ public class Home extends AppCompatActivity implements LocationListener {
 
 
         }
+        s=String.valueOf(lat);
+        q=String.valueOf(lon);
 
         Fetch.placeIdTask asyncTask =new Fetch.placeIdTask(new Fetch.AsyncResponse() {
             public void processFinish(String weather_city, String weather_description, String weather_temperature, String weather_humidity, String weather_pressure, String weather_updatedOn, String weather_iconText, String sun_rise) {
@@ -66,9 +69,10 @@ public class Home extends AppCompatActivity implements LocationListener {
                 pre.setText("Pressure: "+weather_pressure);
                 weatherIcon.setText(Html.fromHtml(weather_iconText));
 
+
             }
         });
-        asyncTask.execute("25.180000", "89.530000");
+        asyncTask.execute(s, q);
 
     }
 
